@@ -34,7 +34,7 @@ jobs:
     uses: TARGET_ORG/PROJECT_NAME-workflows/container-build.yaml
     vars: inherit
     secrets: inherit
-    inputs:
+    with:
       appName: hackers-api
       versionStart: "3.0"
       repo: TARGET_ORG/PROJECT_NAME-api
