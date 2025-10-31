@@ -35,7 +35,7 @@ jobs:
     vars: inherit
     secrets: inherit
     with:
-      appName: hackers-api
+      appName: PROJECT_NAME-api
       versionStart: "3.0"
       repo: TARGET_ORG/PROJECT_NAME-api
     needs: test
