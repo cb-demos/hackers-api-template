@@ -7,7 +7,7 @@ on:
       artifact-id:
         type: string
         required: true
-      artifactVersion:
+      artifact-url:
         type: string
         required: true
       environment:
@@ -35,8 +35,7 @@ jobs:
           namespace: ${{ vars.namespace }}
           values: |
             image:
-              repository: ${{ vars.DOCKER_USER }}/PROJECT_NAME-api
-              tag: ${{ inputs.artifactVersion }}
+              url: ${{ inputs.artifact-url }}
             hostname: PROJECT_NAME-api.${{ inputs.environment }}.preview.cb-demos.io
       - name: Register deployed artifact
         uses: cloudbees-io/register-deployed-artifact@v2
@@ -48,5 +47,5 @@ jobs:
           content: |-
             ## Deployed environment
             [Dev frontend](https://PROJECT_NAME-api.${{ inputs.environment }}.preview.cb-demos.io/)
-            Running PROJECT_NAME-api:${{ inputs.artifactVersion }}
+            Running ${{ inputs.artifact-url }}
           format: MARKDOWN
